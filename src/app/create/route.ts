@@ -54,6 +54,6 @@ router.use(validationHandler).post(async (request) => {
   return NextResponse.json({ newUrl: shortenedUrl }, { status: 201 });
 });
 
-export async function GET(request: NextRequest, ctx: NextContext) {
+export async function POST(request: NextRequest, ctx: NextContext) {
   return router.run(request, ctx);
 }
