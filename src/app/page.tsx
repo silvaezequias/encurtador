@@ -8,7 +8,7 @@ import { useState } from "react";
 import { validateLongUrl } from "@/util/url";
 
 async function getShortUrl(longUrl: string) {
-  const response = await fetch(`/create?url=${longUrl}`);
+  const response = await fetch(`/create?url=${longUrl}`, { method: "POST" });
   const responseBody = (await response.json()) as {
     newUrl: string;
     error?: string;

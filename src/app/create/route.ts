@@ -39,7 +39,7 @@ function validationHandler(request: NextRequest, _: any, next: Function) {
   }
 }
 
-router.use(validationHandler).get(async (request) => {
+router.use(validationHandler).post(async (request) => {
   const longUrl = request.nextUrl.searchParams.get("url");
   const storedUrl = await url.findOneByLongUrl(longUrl!);
 
