@@ -42,9 +42,9 @@ export function host() {
 
   const WS_HOST = process.env.WS_HOST ?? "localhost";
   const WS_PORT = process.env.WS_PORT ?? "3000";
-  const VERCEL_URL = process.env.VERCEL_URL;
 
-  return isProduction || VERCEL_URL
-    ? `https://${VERCEL_URL}`
-    : `http://${WS_HOST}:${WS_PORT}`;
+  let dev = `http://${WS_HOST}:${WS_PORT}`;
+  let prod = "https://urlcurto.vercel.app";
+
+  return isProduction ? prod : dev;
 }
