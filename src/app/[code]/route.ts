@@ -11,7 +11,7 @@ export async function GET(request: NextRequest, context: NextContext) {
 
   if (!urlObject) {
     return NextResponse.json(
-      { error: "Code entered does not exist or has expired." },
+      { error: "O código inserido não existe ou expirou." },
       { status: 404, statusText: "invalid_code" }
     );
   }

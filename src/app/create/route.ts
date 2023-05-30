@@ -25,7 +25,7 @@ function validationHandler(request: NextRequest, _: any, next: Function) {
   try {
     const url = request.nextUrl.searchParams.get("url");
 
-    if (!url) throw new Error("You must enter a URL.");
+    if (!url) throw new Error("Você precisa definir uma URL.");
     const cleanUrl = validateLongUrl(url!);
 
     request.nextUrl.searchParams.set("url", cleanUrl);
