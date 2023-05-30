@@ -75,14 +75,9 @@ export default function Home() {
               setGlobalError({});
             }}
             placeholder="Cole aqui seu URL"
-            className={`bg-gray-900 w-[320px] p-2 pl-4 pr-4 outline-none placeholder:text-gray-700 ${
-              globalError?.message && "border-red-400 text-red-400 border-2"
-            }`}
+            error={!!globalError?.message}
           />
-          <Button
-            onClick={handleShortener}
-            className="bg-gray-900 group p-2 h-10 w-10 flex justify-center items-center"
-          >
+          <Button onClick={handleShortener}>
             <MdOutlineContentCut
               size={20}
               className="group-hover:fill-cyan-600 fill-gray-700"
@@ -90,20 +85,13 @@ export default function Home() {
           </Button>
         </div>
         <div className="flex items-center gap-2">
-          <TextInput
-            disabled
-            value={shortUrl}
-            placeholder="URL Encurtado"
-            className="bg-gray-900 w-[320px] p-2 pl-4 pr-4 outline-none placeholder:text-gray-700"
-          />
-          <Button
-            disabled={!shortUrl}
-            onClick={copyToClipboard}
-            className="bg-gray-900 group p-2 h-10 w-10 flex justify-center items-center"
-          >
+          <TextInput disabled value={shortUrl} placeholder="URL Encurtado" />
+          <Button disabled={!shortUrl} onClick={copyToClipboard}>
             <MdOutlineContentCopy
               size={20}
-              className={"fill-gray-700 group-hover:fill-cyan-600"}
+              className={`fill-gray-700 ${
+                shortUrl && "group-hover:fill-cyan-600"
+              }`}
             />
           </Button>
         </div>
