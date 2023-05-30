@@ -1,6 +1,5 @@
 import ms from "ms";
 import database from "@/database";
-import { v4 as uuid } from "uuid";
 import { Url } from "@prisma/client";
 
 const URL_EXPIRES_AT = Date.now() + ms("1 days");
@@ -8,7 +7,6 @@ const URL_EXPIRES_AT = Date.now() + ms("1 days");
 async function create(data: Pick<Url, "longUrl" | "shortCode">) {
   const urlObject = await database.url.create({
     data: {
-      id: uuid(),
       longUrl: data.longUrl,
       shortCode: data.shortCode,
       expiresAt: new Date(URL_EXPIRES_AT),
